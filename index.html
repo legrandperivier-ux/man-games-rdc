@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a2c6f" />
+    <title>MAN GAMES RDC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-logo" aria-label="Logo MAN GAMES RDC">🎮</div>
+          <div>
+            <p class="brand-kicker">Plateforme</p>
+            <h1>MAN GAMES RDC</h1>
+          </div>
+        </div>
+        <button id="themeToggle" class="mini-btn" aria-label="Changer l'apparence">🌙</button>
+      </header>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-item active" data-view="home">Accueil</button>
+        <button class="nav-item" data-view="games">Jeux</button>
+        <button class="nav-item" data-view="leaderboard">Scores</button>
+        <button class="nav-item" data-view="profile">Profil</button>
+      </nav>
+
+      <main>
+        <section id="home" class="view active">
+          <div class="hero-card glass">
+            <div class="badge">Nouveau</div>
+            <h2>Le plaisir de jouer, à portée de main.</h2>
+            <p>
+              Rejoins la communauté congolaise avec des défis, du quiz et des points pour
+              progresser dans la compétition.
+            </p>
+            <div class="cta-row">
+              <button class="primary-btn" data-action="start-quiz">Jouer au quiz</button>
+              <button class="secondary-btn" data-action="view-games">Explorer</button>
+            </div>
+          </div>
+
+          <div class="quick-stats">
+            <div class="stat glass">
+              <span class="stat-number" id="statPlayers">1.2K</span>
+              <span class="stat-label">Joueurs</span>
+            </div>
+            <div class="stat glass">
+              <span class="stat-number" id="statGames">5</span>
+              <span class="stat-label">Catégories</span>
+            </div>
+            <div class="stat glass">
+              <span class="stat-number" id="statPoints">1500</span>
+              <span class="stat-label">Points</span>
+            </div>
+          </div>
+
+          <div class="section-header">
+            <h3>Catégories</h3>
+            <span>À venir</span>
+          </div>
+
+          <div class="category-grid">
+            <div class="category-card football">
+              <span class="icon">⚽</span>
+              <h4>Jeux de football</h4>
+              <small>À venir</small>
+            </div>
+            <div class="category-card racing">
+              <span class="icon">🏎️</span>
+              <h4>Courses automobiles</h4>
+              <small>À venir</small>
+            </div>
+            <div class="category-card quiz">
+              <span class="icon">❓</span>
+              <h4>Quiz RDC</h4>
+              <small>Disponible</small>
+            </div>
+            <div class="category-card adventure">
+              <span class="icon">🗺️</span>
+              <h4>Jeux d'aventure</h4>
+              <small>À venir</small>
+            </div>
+            <div class="category-card tradition">
+              <span class="icon">🎶</span>
+              <h4>Traditionnels</h4>
+              <small>À venir</small>
+            </div>
+          </div>
+        </section>
+
+        <section id="games" class="view">
+          <div class="panel glass">
+            <div class="section-header">
+              <h3>Catalogue</h3>
+              <span>Mode mobile</span>
+            </div>
+
+            <div class="game-list">
+              <button class="game-card active" data-game="quiz-rdc">
+                <div class="game-meta">
+                  <span class="game-icon">❓</span>
+                  <div>
+                    <strong>Quiz RDC</strong>
+                    <small>Jouable</small>
+                  </div>
+                </div>
+                <span class="pill">Jouer</span>
+              </button>
+
+              <button class="game-card disabled" disabled>
+                <div class="game-meta">
+                  <span class="game-icon">⚽</span>
+                  <div>
+                    <strong>Football</strong>
+                    <small>Bientôt</small>
+                  </div>
+                </div>
+                <span class="pill muted">À venir</span>
+              </button>
+
+              <button class="game-card disabled" disabled>
+                <div class="game-meta">
+                  <span class="game-icon">🏎️</span>
+                  <div>
+                    <strong>Courses</strong>
+                    <small>Bientôt</small>
+                  </div>
+                </div>
+                <span class="pill muted">À venir</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="quizPanel" class="quiz-panel glass">
+            <div class="quiz-topline">
+              <span class="quiz-tag">Quiz congolais</span>
+              <span id="questionCount" class="quiz-progress">1/5</span>
+            </div>
+
+            <h3 id="questionText">Question</h3>
+
+            <div id="answers" class="answer-list"></div>
+
+            <div class="quiz-actions">
+              <button id="nextBtn" class="primary-btn" disabled>Valider</button>
+              <button id="restartBtn" class="secondary-btn hidden">Réessayer</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="leaderboard" class="view">
+          <div class="panel glass">
+            <div class="section-header">
+              <h3>Meilleurs joueurs</h3>
+              <span>Classement</span>
+            </div>
+
+            <div id="leaderboardList" class="leaderboard-list"></div>
+          </div>
+        </section>
+
+        <section id="profile" class="view">
+          <div class="panel glass profile-panel">
+            <div class="avatar">👤</div>
+            <label class="field-label" for="playerName">Nom du joueur</label>
+            <input id="playerName" type="text" value="Joueur RDC" maxlength="20" />
+            <button id="saveProfileBtn" class="primary-btn">Enregistrer</button>
+
+            <div class="profile-stats">
+              <div>
+                <span>Points</span>
+                <strong id="profilePoints">0</strong>
+              </div>
+              <div>
+                <span>Quiz</span>
+                <strong id="profileGames">0</strong>
+              </div>
+              <div>
+                <span>Rang</span>
+                <strong id="profileRank">#1</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
